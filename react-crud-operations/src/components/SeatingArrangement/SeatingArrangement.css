@@ -1,0 +1,54 @@
+/* Reset box-sizing and set base font size */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+/* Container for the seat selection */
+.seatSelectionContainer {
+  margin: 0 auto;
+  max-width: 800px; /* Adjust max-width as needed */
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style for individual seats */
+.seats {
+  display: grid;
+  grid-template-columns: repeat(2 ,1fr) 50px repeat(2,1fr);
+  gap: 10px; /* Adjust spacing between seats */
+}
+
+.seat {
+  width: 30px; /* Calculate seat width with spacing */
+  height: 40px; /* Adjust seat height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1395cc; /* Default color for unavailable seats */
+  cursor: pointer; /* Change cursor to pointer for available seats */
+  border-radius: 5px;
+}
+
+/* Style for available seats */
+.seat.available {
+  background-color: green; /* Change color for available seats */
+}
+
+/* Style for unavailable seats */
+.seat.unavailable {
+  background-color: red; /* Change color for unavailable seats */
+  cursor: not-allowed; /* Prevent clicking on selected unavailable seats */
+}
+
+/* Responsive styling for seats */
+@media (max-width: 768px) {
+  .seat {
+    width: calc(50% - 20px); /* Adjust seat width for smaller screens */
+    height: 50px; /* Adjust seat height for smaller screens */
+    font-size: 14px; /* Adjust font size for seat labels on smaller screens */
+  }
+}
